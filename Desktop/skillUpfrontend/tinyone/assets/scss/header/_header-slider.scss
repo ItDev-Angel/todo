@@ -1,0 +1,146 @@
+.header-slider {
+  display: grid;
+  overflow: hidden;
+
+  @include md-min {
+    grid-template-rows: minmax(500px, max-content) 100px;
+  }
+
+  @include md {
+    grid-template-rows: minmax(300px, max-content) 80px;
+  }
+}
+
+.slides {
+  position: relative;
+}
+
+.slide {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  display: grid;
+  padding-top: $gap;
+  row-gap: $gap;
+  transition: transform 0.5s;
+  transform: translateX(100vw);
+  grid-template-rows: minmax(106px, max-content) auto 1fr auto;
+
+  @include lg-min {
+    column-gap: 180px;
+    grid-template-areas: "t i""s i""d i""b i";
+    grid-template-columns: 1fr auto;
+  }
+
+  @include lg-md {
+    column-gap: 60px;
+    grid-template-areas: "t i""s i""d i""b i";
+    grid-template-columns: 1fr auto;
+  }
+
+  @include md-sm {
+    column-gap: 40px;
+    grid-template-areas: "t i""s i""d i""b i";
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @include sm {
+    column-gap: 20px;
+    grid-template-areas: "t t""s s""d i""b b";
+    grid-template-columns: 1fr 1fr;
+  }
+
+  &.active {
+    position: relative;
+    z-index: 1;
+    transform: translateX(0);
+  }
+
+  &.moved {
+    z-index: 1;
+    transform: translateX(-100vw);
+  }
+
+  &__title {
+    align-self: end;
+    margin: 0;
+    font-size: 2rem;
+    grid-area: t;
+  }
+
+  &__sub {
+    margin: 0;
+    font-size: 1.25rem;
+    grid-area: s;
+  }
+
+  &__desc {
+    margin: 0;
+    color: $color-gray;
+    line-height: 1.25;
+    grid-area: d;
+  }
+
+  &__brands {
+    display: flex;
+    grid-area: b;
+    @include unlist(17px 0 4px);
+
+    @include sm {
+      justify-content: center;
+    }
+
+    li:not(:last-of-type) {
+      margin-right: 35px;
+    }
+
+    i {
+      font-size: 2.75rem;
+    }
+
+    a {
+
+      &:hover,
+      &:focus {
+        text-shadow: 0 0 15px $color-light;
+      }
+    }
+  }
+
+  &__img {
+    padding-top: 4px;
+
+    grid-area: i;
+
+    @include md-min {
+      margin-right: 30px;
+    }
+
+    img {
+      max-width: 100%;
+    }
+  }
+}
+
+.indicators {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @include unlist();
+}
+
+.indicator {
+  width: 15px;
+  height: 15px;
+  margin: -9px 3px 0;
+  cursor: pointer;
+  opacity: 0.5;
+  border-radius: 7.5px;
+  background-color: $color-light;
+
+  &.active {
+    opacity: 1;
+  }
+}

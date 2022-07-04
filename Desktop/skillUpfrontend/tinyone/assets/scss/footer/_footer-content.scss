@@ -1,0 +1,110 @@
+.footer-content {
+  @include lg-min {
+    margin-bottom: 126px;
+  }
+
+  @include lg-md {
+    margin-bottom: 80px;
+  }
+
+  @include md-sm {
+    margin-bottom: 60px;
+  }
+
+  @include sm {
+    margin-bottom: 40px;
+  }
+
+  &__title {
+    color: $color-accent;
+    text-align: center;
+    font-size: 2rem;
+
+    @include lg-min {
+      margin: 0 80px 14px;
+    }
+
+    @include lg-md {
+      margin: 0 60px 14px;
+    }
+
+    @include md {
+      margin: 0 0 14px;
+    }
+  }
+
+  &__desc {
+    color: $color-gray-light;
+    text-align: center;
+    font-size: 1.25rem;
+    line-height: 1.2;
+
+    @include lg-min {
+      margin: 0 80px 86px;
+    }
+
+    @include lg-md {
+      margin: 0 60px 60px;
+    }
+
+    @include md {
+      margin: 0 0 40px;
+    }
+  }
+
+  &__form {
+    display: grid;
+    gap: $gap;
+
+    @include lg-min {
+      margin: 0 100px 70px;
+      grid-template-columns: 1fr 127px;
+    }
+
+    @include lg-md {
+      margin: 0 80px 40px;
+      grid-template-columns: 1fr 127px;
+    }
+
+    @include md-sm {
+      margin: 0 0 $gap;
+      grid-template-columns: 1fr 127px;
+    }
+
+    @include sm {
+      margin: 0 0 $gap;
+    }
+
+    &-input {
+      padding: 16px 22px;
+      @extend %form-preset;
+
+      &::placeholder {
+        color: $color-gray-light;
+      }
+    }
+
+    &-btn {
+      cursor: pointer;
+      background-color: $color-accent;
+      font-weight: 700;
+      @extend %form-preset;
+    }
+  }
+
+  &__soc {
+    display: flex;
+    justify-content: center;
+
+    a {
+      margin: 0 15px;
+      color: $color-accent;
+      font-size: 2.75rem;
+
+      &:hover,
+      &:focus {
+        color: $color-light;
+      }
+    }
+  }
+}
