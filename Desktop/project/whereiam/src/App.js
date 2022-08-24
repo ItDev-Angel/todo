@@ -20,6 +20,7 @@ function App() {
         <DropdownMenu></DropdownMenu>
     </NavItem>
   </Navbar>
+  
     </>
 
   );
@@ -95,6 +96,7 @@ function DropdownMenu() {
           <DropdownItem
             goToMenu="wheretogo">
             Куди піти?<ArrowForwardIosIcon/>
+            
           </DropdownItem>
           <DropdownItem
             goToMenu="wheretoeat">
